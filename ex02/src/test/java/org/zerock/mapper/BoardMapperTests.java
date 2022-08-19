@@ -15,12 +15,12 @@ import lombok.extern.log4j.Log4j;
 public class BoardMapperTests {
 //	@Setter(onMethod_= {@Autowired})
 		@Autowired
-		private BoardMapper boardMapper;
+		private BoardMapper mapper;
 		
 		@Test
 		public void testGetTime() {
 			log.info("testGetTime");
-			log.info(boardMapper.getList());
+			log.info(mapper.getList());
 		}
 		@Test
 		public void testInsert() {
@@ -29,7 +29,7 @@ public class BoardMapperTests {
 			board.setTitle("새 제목");
 			board.setContent("새 내용");
 			board.setWriter("새 저자");
-			boardMapper.insert(board);
+			mapper.insert(board);
 			
 			log.info(board);
 		}
@@ -41,21 +41,21 @@ public class BoardMapperTests {
 			board.setTitle("새로 작성하는글 selectKey");
 			board.setContent("selectKey");
 			board.setWriter("selectKey");
-			boardMapper.insertSelectKey(board);
+			mapper.insertSelectKey(board);
 			
 			log.info(board);
 		}
 		
 		@Test
 		public void testRead() {
-			BoardVO board = boardMapper.read(5L);
+			BoardVO board = mapper.read(5L);
 			
 			log.info(board);
 		}
 		
 		@Test
 		public void testDelete() {
-			log.info("Delete count : " + boardMapper.delete(3L));
+			log.info("Delete count : " + mapper.delete(3L));
 		}
 		
 		@Test
@@ -66,7 +66,7 @@ public class BoardMapperTests {
 			board.setContent("수정된 내용");
 			board.setWriter("저자");
 			
-			int count = boardMapper.update(board);
+			int count = mapper.update(board);
 			log.info("update count : " + count);
 		}
 }
