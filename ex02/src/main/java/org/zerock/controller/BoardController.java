@@ -32,7 +32,7 @@ public class BoardController {
 		log.info("register" + board);
 		service.register(board);
 		rttr.addFlashAttribute("result" , board.getBno());
-		return "redirec:/board/list";
+		return "redirect:/board/list";
 	}
 	
 	@GetMapping("/get")
@@ -57,6 +57,11 @@ public class BoardController {
 			rttr.addFlashAttribute("result","success");
 		}
 		return "redirect:/board/list";
+	}
+	
+	@GetMapping("/register")
+	public void register() {
+		
 	}
 	
 	}
